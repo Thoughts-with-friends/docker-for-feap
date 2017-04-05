@@ -1,0 +1,62 @@
+#------------------------------------------------------------------------
+# To use this makefile the path for "$(FEAPPVHOME3_1)" must be set using
+#   setenv FEAPPVHOME3_1=/....            (in .chrc or .tchrc)  or
+#   export FEAPPVHOME3_1=/....            (in .bashrc or file used)
+# N.B. Information after the slash defines to FEAPPV directories.
+#------------------------------------------------------------------------
+# Set include file type to use: integer4 for 32 bit machines
+#                               integer8 for 64 bit machines
+
+# Use of integer8 files sets pointers to be integer*8 and all other
+# integers to be integer*4.  This limits the size of any single array to
+# an integer*4 value (approx 4 GByte).
+
+# Use of integer4 files sets all integers (including pointers) to be
+# integer*4.
+
+# N.B. If a compiler option is used that sets ALL integers to be
+#      integer*8, it is necessary to reset the parameter 'ipr = 1'
+#      in file 'feappv.f' located in the 'main' directory.
+#------------------------------------------------------------------------
+# Location of feap include files
+
+# FINCLUDE = $(FEAPPVHOME3_1)/include -I$(FEAPPVHOME3_1)/include/integer4
+  FINCLUDE = $(FEAPPVHOME3_1)/include -I$(FEAPPVHOME3_1)/include/integer8
+# CINCLUDE = /usr/X11R6/include         # Required for Apple computers
+
+#------------------------------------------------------------------------
+# Which compilers to use (Set compiler names available on your computer)
+
+FF = gfortran
+CC = gcc
+
+# What optimization level to use
+  FFOPTFLAG = -O3 -ftree-vectorize -Wall
+  CCOPTFLAG = -O3 -ftree-vectorize -Wall
+
+# FFOPTFLAG = -g -O3 -ftree-vectorize -Wall
+# CCOPTFLAG = -g -O3 -ftree-vectorize -Wall
+
+# FFOPTFLAG = -O2 -Wall
+# CCOPTFLAG = -O2 -Wall
+
+# Source Types
+FSOURCE = 
+CSOURCE = 
+
+# Source Extender
+FEXT = f 
+CEXT = c
+
+# What options to be used by the compiler
+FOPTIONS =
+COPTIONS =
+
+# What options to be used by the loader
+LDOPTIONS = -L/usr/X11R6/lib -lX11 -lm
+
+# What archiving to use
+AR = ar rv
+
+# Archive name
+ARFEAP = $(FEAPPVHOME3_1)/Feappv.a
