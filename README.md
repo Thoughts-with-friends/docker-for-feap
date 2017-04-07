@@ -1,6 +1,6 @@
 # Dockerized FEAPpv
 
-[FEAPpv]is a general-purpose educational finite element code
+[FEAPpv] is a general-purpose educational finite element code
 (a light-weight version of [FEAP]).  This repository describes
 a [Docker] container for [FEAPpv].
 
