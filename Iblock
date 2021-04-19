@@ -1,0 +1,40 @@
+feap * * test on solution
+  0 0 0 2 2 4
+
+block
+  cart 4 4
+    1 0 0
+    2 5 0
+    3 5 5
+    4 0 5
+
+ebou
+  1 0 1 0
+  2 0 0 1
+
+
+forc
+  24 0  0 10
+  25 0  0 10
+
+mate 1
+  solid
+    elastic isotropic  1000  0.25
+
+
+end
+
+batch
+  loop,,2
+    tang,,1
+  next
+  disp,all
+  stre all
+  reac all
+  plot cont 2
+  plot load
+  plot boun
+end
+
+inter
+stop
