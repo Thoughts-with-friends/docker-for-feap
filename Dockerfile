@@ -1,24 +1,24 @@
 FROM ubuntu
 
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    gcc \
-    gfortran \
-    unzip \
-    wget \
-    xserver-xorg-dev \
+RUN apt update && apt install -y \
+ build-essential \
+ gcc \
+ gfortran \
+ unzip \
+ wget \
+ xserver-xorg-dev \
  && rm -rf /var/lib/apt/lists/*
 
-ENV FEAPPVHOME3_1 /feappv/ver31
+ENV FEAPPVHOME5_1 /feappv/feappv-5.1.1c
 WORKDIR /feappv
-ADD http://www.ce.berkeley.edu/projects/feap/feappv/feappv31.zip .
+ADD https://github.com/sanjayg0/feappv/archive/v5.1.1c.zip .
 COPY makefile.in .
 
-RUN unzip feappv31.zip \
+RUN unzip v5.1.1c.zip \
  && mkdir -p decks \
- && cp makefile.in ver31/ \
- && cd ver31 \
+ && cp makefile.in feappv-5.1.1c/ \
+ && cd feappv-5.1.1c \
  && make install
 
 WORKDIR /feappv/decks
-CMD /feappv/ver31/main/feappv
+CMD /root

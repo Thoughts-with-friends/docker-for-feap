@@ -4,15 +4,65 @@
 (a light-weight version of [FEAP]).  This repository describes
 a [Docker] container for [FEAPpv].
 
-Note that [FEAPpv] does have an X11-based graphics module, but
-it is not so simple to connect to an X11 server from a container.
+[FEAPpv]: http://projects.ce.berkeley.edu/feap/feappv/
 
-The image can be retrieved from [DockerHub] via
+[FEAP]: http://projects.ce.berkeley.edu//feap/
 
-    docker pull dbindel/feappv-dev
+[Docker]: https://www.docker.com/
 
-
-[FEAPpv]:    http://www.ce.berkeley.edu/projects/feap/feappv/
-[FEAP]:      http://www.ce.berkeley.edu/projects/feap/
-[Docker]:    https://www.docker.com/
 [DockerHub]: https://hub.docker.com/r/dbindel/feappv-dev/
+
+2021/4/19
+David Bindel氏のプロジェクトからフォーク。
+リンクが死んでいたため、修正。
+3.1から5.1へ更新。
+
+## 使用方法：Dockerfileを基にビルドして、runで実行する
+
+＊注：
+
+* 最後の「.」を忘れない。
+* 「.」の前に半角スペース。
+
+### 1. ビルドコマンドを実行
+
+```sh
+docker build -t feappv5_1 .
+```
+
+### 2. GUIまたはGLIから実行させる。GUIがオススメ
+
+CLIの例：ソースは自分のフォルダーを選ぶ必要がある。
+
+* 例ではfeappv-dev-dockerフォルダーとUbuntu側のrootフォルダーを連結させている。
+
+```sh
+docker run --mount type=volume, source==d:/Programing/feappv-dev-docker, target=/root feappv5_1
+```
+
+### 3. feapファイル実行を楽にするためにコマンド登録
+
+* 注意：コンテナーを終了するたびにこのコマンドの登録記録が失われる。
+* そのため、コンテナー再起動のたびにこの入力の必要あり。
+
+```sh
+alias feap="/feappv/feappv-5.1.1c/main/feappv"
+```
+
+### 4. ipconfigコマンドでWSLのIPアドレスを調べてパスを通す
+
+例：172.31.48.1の部分は個人によって変わる。 そこに:0.0を付ける。
+
+```sh
+export DISPLAY=172.31.48.1:0.0
+```
+
+### 5. ホストOS（筆者環境：windows10）とUbuntuにXサーバーをインストール
+
+windows用：[VcXsrv Windows X Server](https://sourceforge.net/projects/vcxsrv/)
+Ubuntu用：このサイト[WSL2環境で動作するDockerを使用してX Window SystemのGoogle Chromeブラウザを動作させる](https://uepon.hatenadiary.com/entry/2020/12/30/005941)の解説を見ながら以下のコマンドを入力。
+
+```sh
+apt update
+apt install xserver-xorg x11-apps
+```

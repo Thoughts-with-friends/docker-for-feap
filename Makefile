@@ -1,10 +1,26 @@
-.PHONY: build clean
 
-run:
-	docker run -it -v `pwd`:/feappv/decks/ feappv-dev
+# N.B.  It is necessary to modify 'makefile.in' before using make.
 
-build:
-	docker build -t feappv-dev .
+include $(FEAPPVHOME5_1)/makefile.in
+
+CLEANDIRS = elements program plot unix user main
+
+feappv: archive
+	(cd main; make feappv)
+	@@echo "--> FEAPpv executable made <--"
+
+archive:   
+	(cd elements; make archive)
+	(cd program; make archive)
+	(cd plot; make archive)
+	(cd unix; make archive)
+	(cd user; make archive)
+	@@echo "--> FEAPpv Archive updated <--"
+
+install: archive feappv
 
 clean:
-	rm -f Oblock feapname
+	for i in $(CLEANDIRS); do (cd $$i; make clean); done
+	if [ -f $(ARFEAPPV) ]; then rm $(ARFEAPPV); fi
+	@@echo "--> FEAPpv cleaned <--"
+
