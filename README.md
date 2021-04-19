@@ -17,28 +17,34 @@ David Bindel氏のプロジェクトからフォーク。
 リンクが死んでいたため、修正。
 3.1から5.1へ更新。
 
+* X11サーバーの問題を解決するため、Linuxとwin10双方にxserver-xorgを入れる必要あり。
+
 ## 使用方法：Dockerfileを基にビルドして、runで実行する
+
+### 1. ビルドコマンドを実行
 
 ＊注：
 
 * 最後の「.」を忘れない。
 * 「.」の前に半角スペース。
 
-### 1. ビルドコマンドを実行
-
 ```sh
 docker build -t feappv5_1 .
 ```
+
+コマンド（以下cmdと略）の意味：Dockerfileからイメージを作成
 
 ### 2. GUIまたはGLIから実行させる。GUIがオススメ
 
 CLIの例：ソースは自分のフォルダーを選ぶ必要がある。
 
-* 例ではfeappv-dev-dockerフォルダーとUbuntu側のrootフォルダーを連結させている。
+* 例ではfeappv-dev-dockerフォルダーとUbuntu側のrootフォルダーを同期させている。
 
 ```sh
 docker run --mount type=volume, source==d:/Programing/feappv-dev-docker, target=/root feappv5_1
 ```
+
+cmdの意味：Dockerイメージからコンテナーを作り、win10フォルダーの中身をUbuntuで認識させる。
 
 ### 3. feapファイル実行を楽にするためにコマンド登録
 
@@ -49,6 +55,8 @@ docker run --mount type=volume, source==d:/Programing/feappv-dev-docker, target=
 alias feap="/feappv/feappv-5.1.1c/main/feappv"
 ```
 
+cmdの意味：feapと打つだけで/feappv/feappv-5.1.1c/main/feappvと入力したことになる
+
 ### 4. ipconfigコマンドでWSLのIPアドレスを調べてパスを通す
 
 例：172.31.48.1の部分は個人によって変わる。 そこに:0.0を付ける。
@@ -56,6 +64,8 @@ alias feap="/feappv/feappv-5.1.1c/main/feappv"
 ```sh
 export DISPLAY=172.31.48.1:0.0
 ```
+
+cmdの意味：環境変数DISPLAYに172.31.48.1:0.0を登録する
 
 ### 5. ホストOS（筆者環境：windows10）とUbuntuにXサーバーをインストール
 

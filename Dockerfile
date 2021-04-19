@@ -21,4 +21,4 @@ RUN unzip v5.1.1c.zip \
  && make install
 
 WORKDIR /feappv/decks
-CMD /root
+CMD cd
