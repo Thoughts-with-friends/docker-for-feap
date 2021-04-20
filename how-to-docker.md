@@ -2,7 +2,7 @@
 
 ## windows版
 
-1. windows版Docker2.5.0.1を[ダウンロード](https://desktop.docker.com/win/stable/49550/Docker%20Desktop%20Installer.exe)
+1. windows版Docker2.5.0.1をダウンロード。[ここをクリック](https://desktop.docker.com/win/stable/49550/Docker%20Desktop%20Installer.exe)
 
 2. [このサイト](https://sukkiri.jp/technologies/virtualizers/docker/docker-win_install.html)を見ながらDockerをインストール
 
