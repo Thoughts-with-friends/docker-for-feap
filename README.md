@@ -67,6 +67,8 @@ docker build -t feappv-dev .
 
 * * *
 
+<br>
+
 ## 2. feap-devイメージをもとにコンテナーを起動させる。
 
 CLIの例：ソースは自分のフォルダーを選ぶ必要がある。
@@ -153,6 +155,8 @@ export DISPLAY=172.27.224.1:0.0
 ![docker-feap](https://github.com/SARDONYX-sard/docker--for-feap/blob/images/docker-feap.png)
 
 * * *
+
+<br>
 
 ## 7. yと入力しEnterを押すとGUIが立ち上がる。
 
