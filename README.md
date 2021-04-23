@@ -12,43 +12,103 @@ a [Docker] container for [FEAPpv].
 
 [DockerHub]: https://hub.docker.com/r/dbindel/feappv-dev/
 
+* * *
+
 2021/4/19
-David Bindel氏のプロジェクトからフォーク。
-リンクが死んでいたため、修正。
-3.1から5.1へ更新。
 
-* X11サーバーの問題を解決するため、Linuxとwin10双方にxserver-xorgを入れる必要あり。
+* David Bindel氏のプロジェクトからフォーク。
+* リンクが死んでいたため、修正。
+* 3.1から5.1へ更新。
+* X11サーバーの問題を解決
 
-## 使用方法：Dockerfileを基にビルドして、runで実行する
+* * *
 
-### 1. ビルドコマンドを実行
+## 必要なもの
 
-＊注：
+* git
+* Docker(ver.2.5.0.1)
+* Xサーバー
 
-* 最後の「.」を忘れない。
-* 「.」の前に半角スペース。
+## はじめに
 
-```sh
-docker build -t feappv5_1 .
+### ソースコードをコピー
+
+コマンドプロンプトで以下を実行。
+
+```shell
+git clone https://github.com/SARDONYX-sard/docker--for-feap.git
 ```
 
-コマンド（以下cmdと略）の意味：Dockerfileからイメージを作成
+DockerとXサーバーのインストール
 
-### 2. GUIまたはGLIから実行させる。GUIがオススメ
+### Docker : windows版
+
+1. windows版Docker2.5.0.1をダウンロード。[ここをクリック](https://desktop.docker.com/win/stable/49550/Docker%20Desktop%20Installer.exe)
+
+2. [このサイト](https://sukkiri.jp/technologies/virtualizers/docker/docker-win_install.html)を見ながらDockerをインストールしていく。
+
+### ホストOS（windows10など）
+
+windows用：VcXsrv Windows X Serverのダウンロード：[ココをクリック](https://sourceforge.net/projects/vcxsrv/)
+
+<!--
+Ubuntu用：
+  このサイト↓
+    [WSL2環境で動作するDockerを使用してX Window SystemのGoogle Chromeブラウザを動作させる](https://uepon.hatenadiary.com/entry/2020/12/30/005941)
+の解説を見ながら以下のコマンドを入力してLinuxにXサーバーを入れる。
+
+```sh
+apt update
+apt install xserver-xorg x11-apps
+``` -->
+
+## 1. Dockerfileからイメージをビルド
+
+* コピペして実行する
+
+```sh
+docker build -t feappv-dev .
+```
+
+コマンド（cmd）の意味：Dockerfileからfeappv-devという名でイメージを作成
+
+## 2. feap-devイメージをもとにコンテナーを起動させる。
 
 CLIの例：ソースは自分のフォルダーを選ぶ必要がある。
 
-* 例ではfeappv-dev-dockerフォルダーとUbuntu側のrootフォルダーを同期させている。
+* 例ではfeappv-dev-dockerフォルダーとUbuntu側のrootフォルダーをシェア。
 
 ```sh
-docker run --mount type=volume, source==d:/Programing/feappv-dev-docker, target=/root feappv5_1
+docker run --mount type=volume, source==d:/Programing/feappv-dev-docker, target=/feappv/decks feappv-dev
 ```
 
 cmdの意味：Dockerイメージからコンテナーを作り、win10フォルダーの中身をUbuntuで認識させる。
 
-### 3. feapファイル実行を楽にするためにコマンド登録
+GUIの例：
 
-* 注意：コンテナーを終了するたびにこのコマンドの登録記録が失われる。
+* RUNボタンを押す
+  ![images](https://github.com/SARDONYX-sard/docker--for-feap/blob/images/docker-img-list.png)
+
+* Optional Settingsを押する
+
+  ![create container](https://github.com/SARDONYX-sard/docker--for-feap/blob/images/create%20container.png)
+
+* コンテナーの名前をつけ、
+   volumes
+   左はホストOSのfeap-dev-dockerフォルダーのある場所（例　d:/Programing/feappv-dev-docker）、
+  右は `/feappv/decks`と記述
+
+* RUNを押す
+
+  ![container-setting](https://github.com/SARDONYX-sard/docker--for-feap/blob/images/container-setting.png)
+
+* コンテナーが立ち上がるのでCLIというところを押す
+
+  ![container-list](https://github.com/SARDONYX-sard/docker--for-feap/blob/images/docker-container-list.png)
+
+## 3. feapファイル実行を楽にするためにコマンド登録（コンテナー内で）
+
+* <div style= color:red>注意：</div>コンテナーを終了するたびにこのコマンドの登録記録が失われる。
 * そのため、コンテナー再起動のたびにこの入力の必要あり。
 
 ```sh
@@ -57,26 +117,38 @@ alias feap="/feappv/feappv-5.1.1c/main/feappv"
 
 cmdの意味：feapと打つだけで/feappv/feappv-5.1.1c/main/feappvと入力したことになる
 
-### 4. ipconfigコマンドでWSLのIPアドレスを調べてパスを通す
+## 4. ipconfigコマンドでWSLのIPv4アドレスを調べてパスを通す（コンテナー内で）
 
-例：172.31.48.1の部分は個人によって変わる。 そこに:0.0を付ける。
+172.27.224.1の部分は個人によって変わる。
+そこに:0.0を付ける。
+例：
 
 ```sh
-export DISPLAY=172.31.48.1:0.0
+export DISPLAY=172.27.224.1:0.0
 ```
 
 cmdの意味：環境変数DISPLAYに172.31.48.1:0.0を登録する
 
-### 5. ホストOS（筆者環境：windows10）とUbuntuにXサーバーをインストール
+<br>
+<br>
+<br>
+## 備考：makeをwindowsで実行する方法
 
-windows用：[VcXsrv Windows X Server](https://sourceforge.net/projects/vcxsrv/)
-Ubuntu用：このサイト[WSL2環境で動作するDockerを使用してX Window SystemのGoogle Chromeブラウザを動作させる](https://uepon.hatenadiary.com/entry/2020/12/30/005941)の解説を見ながら以下のコマンドを入力。
+make for windowsを[このサイト](http://gnuwin32.sourceforge.net/packages/make.htm)からダウンロード
 
-```sh
-apt update
-apt install xserver-xorg x11-apps
+windows10の環境変数に`C:\Program Files (x86)\GnuWin32\bin`を追加
+
+コマンドプロンプトの場合：
+
+```shell
+set PATH=%PATH%;C:\Program Files (x86)\GnuWin32\bin
 ```
 
+＊参考リンク
+
+[Windows10でmakeしたい](https://qiita.com/taki-ikat/items/f501f44a8d44e3fd6987)
+
+<br>
 ## 参考にしたサイト
 
 [The Brain Extension](http://thebrainextension.blogspot.com/2015/01/install-feappv-on-ubuntu-1404.html)
