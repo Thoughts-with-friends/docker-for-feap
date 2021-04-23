@@ -30,7 +30,8 @@ a [Docker] container for [FEAPpv].
 * Xサーバー
 
 ## 0. git cloneとDocker、Xサーバーのインストール
-###  git clone
+
+### git clone
 
 * コマンドプロンプトで以下を実行。
 
@@ -38,15 +39,11 @@ a [Docker] container for [FEAPpv].
 git clone https://github.com/SARDONYX-sard/docker--for-feap.git
 ```
 
-* * *
-
 ### Docker : windows版
 
 windows版Docker2.5.0.1をダウンロード：[ここをクリック](https://desktop.docker.com/win/stable/49550/Docker%20Desktop%20Installer.exe)
 
 インストール時の解説サイト： [こちらのサイト](https://sukkiri.jp/technologies/virtualizers/docker/docker-win_install.html)
-
-* * *
 
 ### ホストOS（windows10など）用Xサーバー
 
@@ -96,6 +93,8 @@ GUIの例：
 
   ![container-list](https://github.com/SARDONYX-sard/docker--for-feap/blob/images/docker-container-list.png)
 
+* * *
+
 ## 3. feapファイル実行を楽にするためにコマンド登録（コンテナー内で）
 
 * <div style= color:red>注意：</div>コンテナーを終了するたびにこのコマンドの登録記録が失われる。
@@ -109,11 +108,15 @@ alias feap="/feappv/feappv-5.1.1c/main/feappv"
 
 ![feap-container](https://github.com/SARDONYX-sard/docker--for-feap/blob/images/docker-feap.png)
 
+* * *
+
 ## 4. ipconfigコマンドでWSLのIPv4アドレスを調べる
 
 ホストOSのコマンドプロンプトで、ipconfigと入力し、実行。
 
 ![ip address](https://github.com/SARDONYX-sard/docker--for-feap/blob/images/display-IP-address.png)
+
+* * *
 
 ## 5. パスを通す（コンテナー内）
 
@@ -127,9 +130,13 @@ export DISPLAY=172.27.224.1:0.0
 
 > cmdの意味：環境変数DISPLAYに172.31.48.1:0.0を登録する
 
+* * *
+
 ## 6. feapと入力し、ファイル名を入力する（コンテナー内）
 
 ![docker-feap](https://github.com/SARDONYX-sard/docker--for-feap/blob/images/docker-feap.png)
+
+* * *
 
 ## 7. yと入力しEnterを押すとGUIが立ち上がる。
 
@@ -138,6 +145,8 @@ export DISPLAY=172.27.224.1:0.0
 <br>
 <br>
 <br>
+
+* * *
 
 ## 備考：makeをwindowsで実行する方法
 
