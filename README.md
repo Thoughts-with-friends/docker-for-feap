@@ -117,7 +117,13 @@ alias feap="/feappv/feappv-5.1.1c/main/feappv"
 
 cmdの意味：feapと打つだけで/feappv/feappv-5.1.1c/main/feappvと入力したことになる
 
-## 4. ipconfigコマンドでWSLのIPv4アドレスを調べてパスを通す（コンテナー内で）
+![feap-container](https://github.com/SARDONYX-sard/docker--for-feap/blob/images/docker-feap.png)
+
+## 4. ipconfigコマンドでWSLのIPv4アドレスを調べる
+
+
+
+## 5. コンテナー内でパスを通す
 
 172.27.224.1の部分は個人によって変わる。
 そこに:0.0を付ける。
