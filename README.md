@@ -51,6 +51,8 @@ windows版Docker2.5.0.1をダウンロード：[ここをクリック](https://d
 
 windows用：VcXsrv Windows X Serverのダウンロード：[ここをクリック](https://sourceforge.net/projects/vcxsrv/)
 
+インストール時の解説サイト： [こちらのサイト](https://uepon.hatenadiary.com/entry/2020/12/30/005941)
+
 * * *
 
 <br>
