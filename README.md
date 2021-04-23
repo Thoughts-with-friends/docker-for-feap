@@ -31,7 +31,7 @@ a [Docker] container for [FEAPpv].
 
 ## はじめに
 
-### ソースコードをコピー
+* ソースコードをコピー
 
 コマンドプロンプトで以下を実行。
 
@@ -39,28 +39,17 @@ a [Docker] container for [FEAPpv].
 git clone https://github.com/SARDONYX-sard/docker--for-feap.git
 ```
 
-DockerとXサーバーのインストール
+* DockerとXサーバーのインストール
 
-### Docker : windows版
+#### Docker : windows版
 
-1. windows版Docker2.5.0.1をダウンロード。[ここをクリック](https://desktop.docker.com/win/stable/49550/Docker%20Desktop%20Installer.exe)
+windows版Docker2.5.0.1をダウンロード：[ここをクリック](https://desktop.docker.com/win/stable/49550/Docker%20Desktop%20Installer.exe)
 
-2. [このサイト](https://sukkiri.jp/technologies/virtualizers/docker/docker-win_install.html)を見ながらDockerをインストールしていく。
+インストール時の解説サイト： [こちらのサイト](https://sukkiri.jp/technologies/virtualizers/docker/docker-win_install.html)
 
-### ホストOS（windows10など）
+#### ホストOS（windows10など）用Xサーバー
 
-windows用：VcXsrv Windows X Serverのダウンロード：[ココをクリック](https://sourceforge.net/projects/vcxsrv/)
-
-<!--
-Ubuntu用：
-  このサイト↓
-    [WSL2環境で動作するDockerを使用してX Window SystemのGoogle Chromeブラウザを動作させる](https://uepon.hatenadiary.com/entry/2020/12/30/005941)
-の解説を見ながら以下のコマンドを入力してLinuxにXサーバーを入れる。
-
-```sh
-apt update
-apt install xserver-xorg x11-apps
-``` -->
+windows用：VcXsrv Windows X Serverのダウンロード：[ここをクリック](https://sourceforge.net/projects/vcxsrv/)
 
 ## 1. Dockerfileからイメージをビルド
 
@@ -70,7 +59,7 @@ apt install xserver-xorg x11-apps
 docker build -t feappv-dev .
 ```
 
-コマンド（cmd）の意味：Dockerfileからfeappv-devという名でイメージを作成
+> コマンド（cmd）の意味：Dockerfileからfeappv-devという名でイメージを作成
 
 ## 2. feap-devイメージをもとにコンテナーを起動させる。
 
@@ -82,7 +71,7 @@ CLIの例：ソースは自分のフォルダーを選ぶ必要がある。
 docker run --mount type=volume, source==d:/Programing/feappv-dev-docker, target=/feappv/decks feappv-dev
 ```
 
-cmdの意味：Dockerイメージからコンテナーを作り、win10フォルダーの中身をUbuntuで認識させる。
+> cmdの意味：Dockerイメージからコンテナーを作り、win10フォルダーの中身をUbuntuで認識させる。
 
 GUIの例：
 
@@ -115,7 +104,7 @@ GUIの例：
 alias feap="/feappv/feappv-5.1.1c/main/feappv"
 ```
 
-cmdの意味：feapと打つだけで/feappv/feappv-5.1.1c/main/feappvと入力したことになる
+> cmdの意味：feapと打つだけで/feappv/feappv-5.1.1c/main/feappvと入力したことになる
 
 ![feap-container](https://github.com/SARDONYX-sard/docker--for-feap/blob/images/docker-feap.png)
 
@@ -135,7 +124,7 @@ cmdの意味：feapと打つだけで/feappv/feappv-5.1.1c/main/feappvと入力�
 export DISPLAY=172.27.224.1:0.0
 ```
 
-cmdの意味：環境変数DISPLAYに172.31.48.1:0.0を登録する
+> cmdの意味：環境変数DISPLAYに172.31.48.1:0.0を登録する
 
 ## 6. feapと入力し、ファイル名を入力する（コンテナー内）
 
@@ -148,6 +137,7 @@ cmdの意味：環境変数DISPLAYに172.31.48.1:0.0を登録する
 <br>
 <br>
 <br>
+
 ## 備考：makeをwindowsで実行する方法
 
 make for windowsを[このサイト](http://gnuwin32.sourceforge.net/packages/make.htm)からダウンロード
@@ -165,6 +155,7 @@ set PATH=%PATH%;C:\Program Files (x86)\GnuWin32\bin
 [Windows10でmakeしたい](https://qiita.com/taki-ikat/items/f501f44a8d44e3fd6987)
 
 <br>
+
 ## 参考にしたサイト
 
 [The Brain Extension](http://thebrainextension.blogspot.com/2015/01/install-feappv-on-ubuntu-1404.html)
