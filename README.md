@@ -121,9 +121,11 @@ cmdの意味：feapと打つだけで/feappv/feappv-5.1.1c/main/feappvと入力�
 
 ## 4. ipconfigコマンドでWSLのIPv4アドレスを調べる
 
+ホストOSのコマンドプロンプトで、ipconfigと入力し、実行。
 
+![ip address](https://github.com/SARDONYX-sard/docker--for-feap/blob/images/display-IP-address.png)
 
-## 5. コンテナー内でパスを通す
+## 5. パスを通す（コンテナー内）
 
 172.27.224.1の部分は個人によって変わる。
 そこに:0.0を付ける。
@@ -134,6 +136,14 @@ export DISPLAY=172.27.224.1:0.0
 ```
 
 cmdの意味：環境変数DISPLAYに172.31.48.1:0.0を登録する
+
+## 6. feapと入力し、ファイル名を入力する（コンテナー内）
+
+![docker-feap](https://github.com/SARDONYX-sard/docker--for-feap/blob/images/docker-feap.png)
+
+## 7. yと入力しEnterを押すとGUIが立ち上がる。
+
+![feap-Xserver](https://github.com/SARDONYX-sard/docker--for-feap/blob/images/feap-Xserver.png)
 
 <br>
 <br>
