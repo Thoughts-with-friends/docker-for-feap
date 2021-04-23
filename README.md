@@ -29,25 +29,26 @@ a [Docker] container for [FEAPpv].
 * Docker(ver.2.5.0.1)
 * Xサーバー
 
-## はじめに
+## 0. git cloneとDocker、Xサーバーのインストール
+###  git clone
 
-* ソースコードをコピー
-
-コマンドプロンプトで以下を実行。
+* コマンドプロンプトで以下を実行。
 
 ```shell
 git clone https://github.com/SARDONYX-sard/docker--for-feap.git
 ```
 
-* DockerとXサーバーのインストール
+* * *
 
-#### Docker : windows版
+### Docker : windows版
 
 windows版Docker2.5.0.1をダウンロード：[ここをクリック](https://desktop.docker.com/win/stable/49550/Docker%20Desktop%20Installer.exe)
 
 インストール時の解説サイト： [こちらのサイト](https://sukkiri.jp/technologies/virtualizers/docker/docker-win_install.html)
 
-#### ホストOS（windows10など）用Xサーバー
+* * *
+
+### ホストOS（windows10など）用Xサーバー
 
 windows用：VcXsrv Windows X Serverのダウンロード：[ここをクリック](https://sourceforge.net/projects/vcxsrv/)
 
