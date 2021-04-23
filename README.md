@@ -29,7 +29,9 @@ a [Docker] container for [FEAPpv].
 * Docker(ver.2.5.0.1)
 * Xサーバー
 
-## 0. git cloneとDocker、Xサーバーのインストール
+<br>
+
+## 0. Docker、Xサーバーのインストール
 
 ### git clone
 
@@ -49,6 +51,10 @@ windows版Docker2.5.0.1をダウンロード：[ここをクリック](https://d
 
 windows用：VcXsrv Windows X Serverのダウンロード：[ここをクリック](https://sourceforge.net/projects/vcxsrv/)
 
+* * *
+
+<br>
+
 ## 1. Dockerfileからイメージをビルド
 
 * コピペして実行する
@@ -58,6 +64,8 @@ docker build -t feappv-dev .
 ```
 
 > コマンド（cmd）の意味：Dockerfileからfeappv-devという名でイメージを作成
+
+* * *
 
 ## 2. feap-devイメージをもとにコンテナーを起動させる。
 
@@ -95,6 +103,8 @@ GUIの例：
 
 * * *
 
+<br>
+
 ## 3. feapファイル実行を楽にするためにコマンド登録（コンテナー内で）
 
 * <div style= color:red>注意：</div>コンテナーを終了するたびにこのコマンドの登録記録が失われる。
@@ -110,6 +120,8 @@ alias feap="/feappv/feappv-5.1.1c/main/feappv"
 
 * * *
 
+<br>
+
 ## 4. ipconfigコマンドでWSLのIPv4アドレスを調べる
 
 ホストOSのコマンドプロンプトで、ipconfigと入力し、実行。
@@ -117,6 +129,8 @@ alias feap="/feappv/feappv-5.1.1c/main/feappv"
 ![ip address](https://github.com/SARDONYX-sard/docker--for-feap/blob/images/display-IP-address.png)
 
 * * *
+
+<br>
 
 ## 5. パスを通す（コンテナー内）
 
@@ -131,6 +145,8 @@ export DISPLAY=172.27.224.1:0.0
 > cmdの意味：環境変数DISPLAYに172.31.48.1:0.0を登録する
 
 * * *
+
+<br>
 
 ## 6. feapと入力し、ファイル名を入力する（コンテナー内）
 
