@@ -1,0 +1,13 @@
+version: "3.9"
+services:
+  app:
+    build:
+      context: ./ # Dockerfile/URL Path
+      dockerfile: Dockerfile
+    image: sardonyx30/feap:dev # imageName:tag
+    tty: true # == `docker -t`
+    stdin_open: true # == `docker -i`
+    volumes:
+      - ./:/root/code
+      - /mnt/wslg:/mnt/wslg
+      - /tmp/.X11-unix:/tmp/.X11-unix

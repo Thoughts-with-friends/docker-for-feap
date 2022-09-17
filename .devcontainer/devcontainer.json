@@ -1,0 +1,31 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.158.0/containers/docker-existing-docker-compose
+// If you want to run as a non-root user in the container, see .devcontainer/docker-compose.yml.
+{
+  "dockerComposeFile": [
+    "../docker/docker-compose.yml"
+  ],
+  "extensions": [
+    "alexclewontin.make-lsp-vscode",
+    "davidanson.vscode-markdownlint",
+    "eamodio.gitlens",
+    "editorconfig.editorconfig",
+    "ekibun.fortranbreaker",
+    "gimly81.fortran",
+    "hansec.fortran-ls",
+    "mateuszchudyk.hexinspector",
+    "mhutchie.git-graph",
+    "ms-vscode-remote.remote-containers",
+    "oderwat.indent-rainbow",
+    "pkief.material-icon-theme",
+    "redhat.vscode-yaml",
+    "richie5um2.vscode-sort-json",
+    "spmeesseman.vscode-taskexplorer",
+    "streetsidesoftware.code-spell-checker",
+    "tyriar.sort-lines",
+    "yzhang.markdown-all-in-one"
+  ],
+  "name": "feap",
+  "service": "app",
+  "workspaceFolder": "/root/feap"
+}

@@ -1,0 +1,35 @@
+{
+  "[markdown]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.markdownlint": true
+    },
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint",
+    "editor.padding.bottom": 250,
+    "editor.quickSuggestions": {
+      "comments": false,
+      "other": true,
+      "strings": false
+    },
+    "editor.scrollBeyondLastLine": false,
+    "editor.wordSeparators": "./\\<)\"'>:,.;<>~!@# ○$%^&*|+=[]{}`~?．。，、（）「」［］｛｝《》てにをはがのともへでや"
+  },
+  "editor.rulers": [
+    80
+  ],
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 2000,
+  "files.exclude": {
+    "**/.dccache": true,
+    "**/.gdb_history": true
+  },
+  "files.watcherExclude": {
+    "**/.git/objects/**": true
+  },
+  "markdownlint.config": {
+    "MD024": false,
+    "MD025": false,
+    "MD033": false,
+    "default": true,
+    "no-hard-tabs": false
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "recommendations": [
+    "alexclewontin.make-lsp-vscode",
+    "davidanson.vscode-markdownlint",
+    "eamodio.gitlens",
+    "editorconfig.editorconfig",
+    "ekibun.fortranbreaker",
+    "gimly81.fortran",
+    "hansec.fortran-ls",
+    "mateuszchudyk.hexinspector",
+    "mhutchie.git-graph",
+    "ms-vscode-remote.remote-containers",
+    "oderwat.indent-rainbow",
+    "pkief.material-icon-theme",
+    "redhat.vscode-yaml",
+    "richie5um2.vscode-sort-json",
+    "spmeesseman.vscode-taskexplorer",
+    "streetsidesoftware.code-spell-checker",
+    "tyriar.sort-lines",
+    "yzhang.markdown-all-in-one"
+  ]
+}
